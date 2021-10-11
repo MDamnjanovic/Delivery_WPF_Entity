@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DostavaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Artikal">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="naziv" Type="varchar" MaxLength="30" />
+    <Property Name="kolicina" Type="int" />
+    <Property Name="cena" Type="real" />
+  </EntityType>
+  <EntityType Name="Dostava">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="adresaDostave" Type="varchar" MaxLength="100" />
+    <Property Name="datum" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="dostavaArtikala">
+    <Key>
+      <PropertyRef Name="id_dostava" />
+      <PropertyRef Name="id_artikal" />
+    </Key>
+    <Property Name="id_dostava" Type="int" Nullable="false" />
+    <Property Name="id_artikal" Type="int" Nullable="false" />
+    <Property Name="kolicina" Type="int" />
+  </EntityType>
+  <Association Name="fk_DA_Artikal">
+    <End Role="Artikal" Type="Self.Artikal" Multiplicity="1" />
+    <End Role="dostavaArtikala" Type="Self.dostavaArtikala" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Artikal">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="dostavaArtikala">
+        <PropertyRef Name="id_artikal" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_DA_Dostava">
+    <End Role="Dostava" Type="Self.Dostava" Multiplicity="1" />
+    <End Role="dostavaArtikala" Type="Self.dostavaArtikala" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Dostava">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="dostavaArtikala">
+        <PropertyRef Name="id_dostava" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DostavaModelStoreContainer">
+    <EntitySet Name="Artikal" EntityType="Self.Artikal" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Dostava" EntityType="Self.Dostava" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="dostavaArtikala" EntityType="Self.dostavaArtikala" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="fk_DA_Artikal" Association="Self.fk_DA_Artikal">
+      <End Role="Artikal" EntitySet="Artikal" />
+      <End Role="dostavaArtikala" EntitySet="dostavaArtikala" />
+    </AssociationSet>
+    <AssociationSet Name="fk_DA_Dostava" Association="Self.fk_DA_Dostava">
+      <End Role="Dostava" EntitySet="Dostava" />
+      <End Role="dostavaArtikala" EntitySet="dostavaArtikala" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

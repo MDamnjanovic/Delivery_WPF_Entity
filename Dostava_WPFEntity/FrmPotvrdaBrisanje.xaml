@@ -1,0 +1,15 @@
+﻿<Window x:Class="Dostava_WPFEntity.FrmPotvrdaBrisanje"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Dostava_WPFEntity"
+        mc:Ignorable="d"
+        Title="FrmPotvrdaBrisanje" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Label Content="Da li potvrdjujete brisanje?" HorizontalAlignment="Left" Height="70" Margin="233,102,0,0" VerticalAlignment="Top" Width="328"/>
+        <Button x:Name="btnDa" Content="Da" HorizontalAlignment="Left" Height="36" Margin="72,310,0,0" VerticalAlignment="Top" Width="206" Click="btnDa_Click"/>
+        <Button x:Name="btnNe" Content="Ne" HorizontalAlignment="Left" Height="36" Margin="460,310,0,0" VerticalAlignment="Top" Width="206" Click="btnNe_Click"/>
+
+    </Grid>
+</Window>

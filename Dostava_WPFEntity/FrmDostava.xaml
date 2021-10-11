@@ -1,0 +1,24 @@
+﻿<Window x:Class="Dostava_WPFEntity.FrmDostava"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Dostava_WPFEntity"
+        mc:Ignorable="d"
+        Title="FrmDostava" Height="553.151" Width="1149.427">
+    <Grid>
+        <Label Content="Adresa dostave" HorizontalAlignment="Left" Height="31" Margin="722,48,0,0" VerticalAlignment="Top" Width="180"/>
+        <Label Content="Datum" HorizontalAlignment="Left" Height="31" Margin="722,109,0,0" VerticalAlignment="Top" Width="180"/>
+        <TextBox Text="{Binding adresaDostave}" x:Name="tbAdresa" HorizontalAlignment="Left" Height="31" Margin="835,48,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="220"/>
+        <DatePicker Text="{Binding datum}" x:Name="dtDatum" HorizontalAlignment="Left" Height="31" Margin="835,109,0,0" VerticalAlignment="Top" Width="220"/>
+        <DataGrid x:Name="dgArtikli" HorizontalAlignment="Left" Height="311" Margin="54,48,0,0" VerticalAlignment="Top" Width="623" IsReadOnly="True" SelectionMode="Single"/>
+        <Button x:Name="btnPotvrdiPorudzbinu" Content="Potvrdi porudzbinu" HorizontalAlignment="Left" Height="27" Margin="749,475,0,0" VerticalAlignment="Top" Width="153" Click="btnPotvrdiPorudzbinu_Click"/>
+        <Button x:Name="btnDodajArtikal" Content="Dodaj artikal" HorizontalAlignment="Left" Height="37" Margin="469,386,0,0" VerticalAlignment="Top" Width="208" Click="btnDodajArtikal_Click"/>
+        <ListBox x:Name="lbArtikliPorudzbina" HorizontalAlignment="Left" Height="235" Margin="734,188,0,0" VerticalAlignment="Top" Width="321">
+            <Label Content="Label"/>
+        </ListBox>
+        <Label Content="Kolicina" HorizontalAlignment="Left" Height="27" Margin="57,396,0,0" VerticalAlignment="Top" Width="171"/>
+        <TextBox x:Name="tbKolicina" HorizontalAlignment="Left" Height="27" Margin="190,396,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="147" PreviewTextInput="NumberValidationTextBox"/>
+
+    </Grid>
+</Window>

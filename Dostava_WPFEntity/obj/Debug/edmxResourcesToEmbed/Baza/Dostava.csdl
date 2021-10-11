@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DostavaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Artikal">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="naziv" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="kolicina" Type="Int32" />
+    <Property Name="cena" Type="Single" />
+    <NavigationProperty Name="dostavaArtikalas" Relationship="Self.fk_DA_Artikal" FromRole="Artikal" ToRole="dostavaArtikala" />
+  </EntityType>
+  <EntityType Name="Dostava">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="adresaDostave" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="datum" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="dostavaArtikalas" Relationship="Self.fk_DA_Dostava" FromRole="Dostava" ToRole="dostavaArtikala" />
+  </EntityType>
+  <EntityType Name="dostavaArtikala">
+    <Key>
+      <PropertyRef Name="id_dostava" />
+      <PropertyRef Name="id_artikal" />
+    </Key>
+    <Property Name="id_dostava" Type="Int32" Nullable="false" />
+    <Property Name="id_artikal" Type="Int32" Nullable="false" />
+    <Property Name="kolicina" Type="Int32" />
+    <NavigationProperty Name="Artikal" Relationship="Self.fk_DA_Artikal" FromRole="dostavaArtikala" ToRole="Artikal" />
+    <NavigationProperty Name="Dostava" Relationship="Self.fk_DA_Dostava" FromRole="dostavaArtikala" ToRole="Dostava" />
+  </EntityType>
+  <Association Name="fk_DA_Artikal">
+    <End Role="Artikal" Type="Self.Artikal" Multiplicity="1" />
+    <End Role="dostavaArtikala" Type="Self.dostavaArtikala" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Artikal">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="dostavaArtikala">
+        <PropertyRef Name="id_artikal" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_DA_Dostava">
+    <End Role="Dostava" Type="Self.Dostava" Multiplicity="1" />
+    <End Role="dostavaArtikala" Type="Self.dostavaArtikala" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Dostava">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="dostavaArtikala">
+        <PropertyRef Name="id_dostava" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DostavaEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Artikals" EntityType="Self.Artikal" />
+    <EntitySet Name="Dostavas" EntityType="Self.Dostava" />
+    <EntitySet Name="dostavaArtikalas" EntityType="Self.dostavaArtikala" />
+    <AssociationSet Name="fk_DA_Artikal" Association="Self.fk_DA_Artikal">
+      <End Role="Artikal" EntitySet="Artikals" />
+      <End Role="dostavaArtikala" EntitySet="dostavaArtikalas" />
+    </AssociationSet>
+    <AssociationSet Name="fk_DA_Dostava" Association="Self.fk_DA_Dostava">
+      <End Role="Dostava" EntitySet="Dostavas" />
+      <End Role="dostavaArtikala" EntitySet="dostavaArtikalas" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

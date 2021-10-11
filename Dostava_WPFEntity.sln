@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30907.101
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dostava_WPFEntity", "Dostava_WPFEntity\Dostava_WPFEntity.csproj", "{39618F04-9119-40BF-B492-1846AC19B291}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{39618F04-9119-40BF-B492-1846AC19B291}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39618F04-9119-40BF-B492-1846AC19B291}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39618F04-9119-40BF-B492-1846AC19B291}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39618F04-9119-40BF-B492-1846AC19B291}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EEAE600B-7B0F-41A9-9C43-8378D0D2485F}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,23 @@
+create table Artikal(
+	id int not null,
+	naziv varchar(30),
+	kolicina int,
+	cena real,
+	constraint pk_artikal primary key(id)
+);
+
+create table Dostava(
+	id int not null,
+	adresaDostave varchar(100),
+	datum varchar(50),
+	constraint pk_dostava primary key (id)
+);
+
+create table dostavaArtikala (
+	id_dostava int not null,
+	id_artikal int not null,
+	kolicina int,
+	constraint pk_dostavaArtikala primary key(id_dostava, id_artikal),
+	constraint fk_DA_Dostava foreign key(id_dostava) references Dostava(id),
+	constraint fk_DA_Artikal foreign key(id_artikal) references Artikal(id)
+);

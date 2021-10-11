@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DostavaModelStoreContainer" CdmEntityContainer="DostavaEntities">
+    <EntitySetMapping Name="Artikals">
+      <EntityTypeMapping TypeName="DostavaModel.Artikal">
+        <MappingFragment StoreEntitySet="Artikal">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="naziv" ColumnName="naziv" />
+          <ScalarProperty Name="kolicina" ColumnName="kolicina" />
+          <ScalarProperty Name="cena" ColumnName="cena" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Dostavas">
+      <EntityTypeMapping TypeName="DostavaModel.Dostava">
+        <MappingFragment StoreEntitySet="Dostava">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="adresaDostave" ColumnName="adresaDostave" />
+          <ScalarProperty Name="datum" ColumnName="datum" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="dostavaArtikalas">
+      <EntityTypeMapping TypeName="DostavaModel.dostavaArtikala">
+        <MappingFragment StoreEntitySet="dostavaArtikala">
+          <ScalarProperty Name="id_dostava" ColumnName="id_dostava" />
+          <ScalarProperty Name="id_artikal" ColumnName="id_artikal" />
+          <ScalarProperty Name="kolicina" ColumnName="kolicina" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

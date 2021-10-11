@@ -1,0 +1,20 @@
+﻿<Window x:Class="Dostava_WPFEntity.FrmArtikli"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Dostava_WPFEntity"
+        mc:Ignorable="d"
+        Title="FrmArtikli" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Label Content="Naziv" HorizontalAlignment="Left" Height="28" Margin="35,37,0,0" VerticalAlignment="Top" Width="142"/>
+        <Label Content="Kolicina" HorizontalAlignment="Left" Height="28" Margin="35,120,0,0" VerticalAlignment="Top" Width="142"/>
+        <Label Content="Cena" HorizontalAlignment="Left" Height="28" Margin="35,199,0,0" VerticalAlignment="Top" Width="142"/>
+        <TextBox Text="{Binding naziv}" x:Name="tbNaziv" HorizontalAlignment="Left" Height="28" Margin="238,37,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="216"/>
+        <TextBox Text="{Binding kolicina}" x:Name="tbKolicina" HorizontalAlignment="Left" Height="28" Margin="238,124,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="216"/>
+        <TextBox Text="{Binding cena}" x:Name="tbCena" HorizontalAlignment="Left" Height="28" Margin="238,203,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="216"/>
+        <Button x:Name="btnDodaj" Content="Dodaj" HorizontalAlignment="Left" Height="28" Margin="49,333,0,0" VerticalAlignment="Top" Width="177" Click="btnDodaj_Click"/>
+        <Button x:Name="btnZatvori" Content="Zatvori" HorizontalAlignment="Left" Height="28" Margin="468,333,0,0" VerticalAlignment="Top" Width="177" Click="btnZatvori_Click"/>
+
+    </Grid>
+</Window>
